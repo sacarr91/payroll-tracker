@@ -4,8 +4,62 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-}
+  const employeeInfo = {
+    firstName: '',
+    lastName: '',
+    annualSalary: 0,
+  };
 
+const employeesArray = []
+
+let nextEmployee = true;
+
+  while (nextEmployee) {
+
+    let empFirstName = window.prompt("Enter employee first name:");
+      
+    if (!empFirstName) {
+      return;  
+    } else if (empFirstName == '') {
+      window.alert("Ohp! Missed that one. Please enter a first name for this employee.");
+    } else {
+      employeeInfo.firstName++;
+    };
+      
+    let empLastName = window.prompt("Enter employee last name:");
+        
+    if (!empLastName) {
+      return;  
+    } else if (empLastName == '') {
+      window.alert("Oops! Didn't catch that. Please enter a last name for this employee.");
+    } else {
+      employeeInfo.lastName++;
+    };
+    
+    let empSalary = window.prompt("Enter employee's annual salary (use only numbers)':");
+        
+    if (!empSalary) {
+      return;  
+    } else if (empSalary == '') {
+      window.alert("Please enter the annual salary for this employee.");
+    } else if (empSalary == isNaN) {
+      window.alert("Silly me, I didn't quite understand... Please enter a numerical value. (Don't worry about formatting such as $ or ,)")
+    } else {
+      Number.empSalary ()
+      empSalary = (`$${empSalary}`)
+      employeeInfo.annualSalary++;
+    };
+      
+    nextEmployee = window.confirm("Employee added! Would you like to add another?")
+
+  };
+
+
+
+
+
+
+    }
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
