@@ -1,76 +1,64 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-const employeesArray = [] //intitiate empty array in which to collect employee data
+
+let employeesArray = [] //intitiate empty array in which to collect employee data
+
+const employeeInfo = { //initiate object literal in which to collect and group individual employee data
+  firstName: '',
+  lastName: '',
+  annualSalary: 0,
+};
+
+//establish variables to be levied in the function
+let empFirstName = ``
+let empLastName = ``
+let empSalary = ``
 
 const collectEmployees = function() { //begin process of collecting group of employee data
   
-  const employeeInfo = { //initiate object literal in which to collect and group individual employee data
-    firstName: '',
-    lastName: '',
-    annualSalary: 0,
-  };
-
   let nextEmployee = true; //provide condition needed to run while loop
 
   while (nextEmployee) { //collect employee data
-
-    let empFirstName = window.prompt("Enter employee first name:"); //input employee first name
-      
-    if (!empFirstName) { //if user presses cancel...
-      return;  //...end function
-    } else if (empFirstName == '') { //provide for redirect in case of empty input
-      window.alert("Ohp! Missed that one. Please enter a first name for this employee.");
-    } else { //store user input to object literal employeeInfo
-      employeeInfo.firstName++;
-      console.log(`First name recorded: ${employeeInfo.firstName}`);
-    };
-      
-    let empLastName = window.prompt("Enter employee last name:"); //input employee last name
         
-    if (!empLastName) { //if user presses cancel...
-      return;  //...end function
-    } else if (empLastName == '') { //provide for redirect in case of empty input
-      window.alert("Oops! Didn't catch that. Please enter a last name for this employee.");
-    } else {
-      employeeInfo.lastName++; //store user input to object literal employeeInfo
-      console.log(`Last name recorded: ${employeeInfo.lastName}`);
-    };
+    empFirstName = window.prompt(`Enter employee first name:`); //input employee first name
+    employeeInfo.firstName = empFirstName;
+    console.log(`First name recorded: ${employeeInfo.firstName}`);
+      
+    empLastName = window.prompt("Enter employee last name:"); //input employee last name
+    employeeInfo.lastName = empLastName; //store user input to object literal employeeInfo
+    console.log(`Last name recorded: ${employeeInfo.lastName}`);
     
-    let empSalary = window.prompt("Enter employee's annual salary (use only numbers)':"); //input employee salary
-        
-    if (!empSalary) { //if user presses cancel...
-      return;  //...end function
-    } else if (empSalary == '') { //provide for redirect in case of empty input
-      window.alert("Please enter the annual salary for this employee.");
-    } else if (empSalary == isNaN) { //provide for redirect in case input is not a number
-      window.alert("Silly me, I didn't quite understand... Please enter a numerical value. (Don't worry about formatting such as $ or ,)")
-    } else {
-      Number.empSalary (); //ensure salary is stored in memory as a number type
-      employeeInfo.annualSalary++; //store user input to object literal employeeInfo
-      console.log(`Salary recorded: ${employeeInfo.annualSalary}`);
-    };
-
-    employeesArray.push(employeeInfo) { //push completed object into array for storage
-      console.log(`Info stored in array: ${employeeInfo}`); //confirm work
-      console.log(`New array: ${employeesArray}`); //confirm result
-    }
-
+    empSalary = window.prompt("Enter employee's annual salary (use only numbers):"); //input employee salary
+    Number(empSalary); //ensure salary is stored in memory as a number type
+    employeeInfo.annualSalary = empSalary; //store user input to object literal employeeInfo
+    console.log(`Salary recorded: ${employeeInfo.annualSalary}`);
+    
+    employeesArray.push(employeeInfo); //push completed object into array for storage
+    console.log(`Info stored in array: ${employeeInfo}`); //confirm work
+    console.log(`New array: ${employeesArray}`); //confirm result
+    
     nextEmployee = window.confirm("Employee added! Would you like to add another?"); //prompt for next employee, reassign nextEmployee variable to false when complete to end while loop
     console.log(`While loop reactivated? ${nextEmployee}`)
   }; //end of while loop function code
 
-} //end of collectEmployees function
+}; //end of collectEmployees function
+
+addEmployeesBtn.addEventListener("click", collectEmployees => {
+  console.log(collectEmployees);
+}); //add event listener to button in order to activate function
 
 //STOPPED HERE------------->>>>>>>>>>>>>>>>>>>>>
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
+const displayAverageSalary = function() {
   // TODO: Calculate and display the average salary
-} //end of 
+
+}; //end of display average salary code
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-}
+  
+}; //end of select random employee code
 
 /*
   ====================
