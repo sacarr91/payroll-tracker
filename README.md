@@ -19,4 +19,3 @@ This application is still under development.
 ![screenshot of deployed page](screenshot.jpg)
 
 [Link to Deployed Payroll Tracker](https://sacarr91.github.io/payroll-tracker/)
-description, screenshot, and link to deployed application.
