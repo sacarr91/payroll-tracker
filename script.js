@@ -21,18 +21,27 @@ const collectEmployees = function() { //begin process of collecting group of emp
   while (nextEmployee) { //collect employee data
         
     empFirstName = window.prompt(`Enter employee first name:`); //input employee first name
-    employeeInfo.firstName = empFirstName;
-    console.log(`First name recorded: ${employeeInfo.firstName}`);
-      
+    if (!empFirstName) {
+      return;
+    } else {
+      employeeInfo.firstName = empFirstName;
+      console.log(`First name recorded: ${employeeInfo.firstName}`);
+    };
     empLastName = window.prompt("Enter employee last name:"); //input employee last name
-    employeeInfo.lastName = empLastName; //store user input to object literal employeeInfo
-    console.log(`Last name recorded: ${employeeInfo.lastName}`);
-    
+    if (!empLastName) {
+      return;
+    } else {
+      employeeInfo.lastName = empLastName; //store user input to object literal employeeInfo
+      console.log(`Last name recorded: ${employeeInfo.lastName}`);
+    };
     empSalary = window.prompt("Enter employee's annual salary (use only numbers):"); //input employee salary
-    Number(empSalary); //ensure salary is stored in memory as a number type
-    employeeInfo.annualSalary = empSalary; //store user input to object literal employeeInfo
-    console.log(`Salary recorded: ${employeeInfo.annualSalary}`);
-    
+    if (!empSalary) {
+      return;
+    } else {
+      Number(empSalary); //ensure salary is stored in memory as a number type
+      employeeInfo.annualSalary = empSalary; //store user input to object literal employeeInfo
+      console.log(`Salary recorded: ${employeeInfo.annualSalary}`);
+    };
     employeesArray.push(employeeInfo); //push completed object into array for storage
     console.log(`Info stored in array: ${employeeInfo}`); //confirm work
     console.log(`New array: ${employeesArray}`); //confirm result
