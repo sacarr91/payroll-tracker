@@ -16,6 +16,6 @@ This application is still under development.
 - [ ] Salary average display
 - [ ] Random employee picker
 
-![screenshot of deployed page](screenshot.jpg)
+![screenshot of deployed page](./assets/Screenshot%202024-03-24%20222325.png)
 
 [Link to Deployed Payroll Tracker](https://sacarr91.github.io/payroll-tracker/)
