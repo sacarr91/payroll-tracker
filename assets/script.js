@@ -16,20 +16,22 @@ const collectEmployees = function() { //begin process of collecting group of emp
     const firstName = prompt('First Name plz')
     const lastName = prompt('last name')
     let salary = prompt('salary')
+  
+    if (!nextEmployee) {return;};
 
-  if (isNaN(salary)) { //provide for if salary is blank or not a number
-    alert('We need to pay them something.')
-    salary = prompt('salary')
-  } 
+    if (isNaN(salary)) { //provide for if salary is blank or not a number
+      alert('We need to pay them something.')
+      salary = prompt('salary')
+    } 
 
-  let employeeInfo = { //collect employee info variables in an object
+    let employeeInfo = { //collect employee info variables in an object
     firstName: firstName,
     lastName: lastName,
     salary: salary,
-  }
+    }
 
-employeesArray.push(employeeInfo); //add completed object to array
-nextEmployee = confirm('Add another?'); //boolean to reinit while loop
+    employeesArray.push(employeeInfo); //add completed object to array
+    nextEmployee = confirm('Add another?'); //boolean to reinit while loop
   }
 return employeesArray; //sends array info to storage in memory
 };  
