@@ -1,72 +1,55 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
-let employeesArray = [] //intitiate empty array in which to collect employee data
-
-const employeeInfo = { //initiate object literal in which to collect and group individual employee data
-  firstName: '',
-  lastName: '',
-  annualSalary: 0,
-};
-
-//establish variables to be levied in the function
-let empFirstName = ``
-let empLastName = ``
-let empSalary = ``
+// !!!!!! 
+// Major thanks to Clarissa Mobley & Zach Polof for their help in refactoring my code! (Variables & while statement)
+// !!!!!!
 
 const collectEmployees = function() { //begin process of collecting group of employee data
+ 
+  let employeesArray = [] //intitiate empty array in which to collect employee data
+  let nextEmployee = true //provide condition needed to run while loop
+
+  //establish variables to be levied in the function
   
-  let nextEmployee = true; //provide condition needed to run while loop
-
   while (nextEmployee) { //collect employee data
-        
-    empFirstName = window.prompt(`Enter employee first name:`); //input employee first name
-    if (!empFirstName) {
-      return;
-    } else {
-      employeeInfo.firstName = empFirstName;
-      console.log(`First name recorded: ${employeeInfo.firstName}`);
-    };
-    empLastName = window.prompt("Enter employee last name:"); //input employee last name
-    if (!empLastName) {
-      return;
-    } else {
-      employeeInfo.lastName = empLastName; //store user input to object literal employeeInfo
-      console.log(`Last name recorded: ${employeeInfo.lastName}`);
-    };
-    empSalary = window.prompt("Enter employee's annual salary (use only numbers):"); //input employee salary
-    if (!empSalary) {
-      return;
-    } else {
-      Number(empSalary); //ensure salary is stored in memory as a number type
-      employeeInfo.annualSalary = empSalary; //store user input to object literal employeeInfo
-      console.log(`Salary recorded: ${employeeInfo.annualSalary}`);
-    };
-    employeesArray.push(employeeInfo); //push completed object into array for storage
-    console.log(`Info stored in array: ${employeeInfo}`); //confirm work
-    console.log(`New array: ${employeesArray}`); //confirm result
-    
-    nextEmployee = window.confirm("Employee added! Would you like to add another?"); //prompt for next employee, reassign nextEmployee variable to false when complete to end while loop
-    console.log(`While loop reactivated? ${nextEmployee}`)
-  }; //end of while loop function code
+    const firstName = prompt('First Name plz')
+    const lastName = prompt('last name')
+    let salary = prompt('salary')
 
-}; //end of collectEmployees function
+  if (isNaN(salary)) { //provide for if salary is blank or not a number
+    alert('We need to pay them something.')
+    salary = prompt('salary')
+  } 
 
-addEmployeesBtn.addEventListener("click", collectEmployees => {
-  console.log(collectEmployees);
-}); //add event listener to button in order to activate function
+  let employeeInfo = { //collect employee info variables in an object
+    firstName: firstName,
+    lastName: lastName,
+    salary: salary,
+  }
 
-//STOPPED HERE------------->>>>>>>>>>>>>>>>>>>>>
+employeesArray.push(employeeInfo); //add completed object to array
+nextEmployee = confirm('Add another?'); //boolean to reinit while loop
+  }
+return employeesArray; //sends array info to storage in memory
+};  
+
+addEmployeesBtn.addEventListener('click', collectEmployees)
+
 // Display the average salary
+let totalSalary = 0
 const displayAverageSalary = function() {
   // TODO: Calculate and display the average salary
-
+for (let i=0; i<employeesArray.length; i++) {
+  (totalSalary += employeesArray[i].salary)
+};
+totalSalary / employeesArray.length
 }; //end of display average salary code
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  
+  employeesArray[Math.floor(Math.random() * employeesArray.length)];
 }; //end of select random employee code
 
 /*
