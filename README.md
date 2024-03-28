@@ -11,10 +11,13 @@ This application is still under development.
 #### Available features include
 - [x] User Input Prompts
 - [x] Option to add another employee
-#### Features coming soon
-- [ ] Summary table
-- [ ] Salary average display
-- [ ] Random employee picker
+#### Features updated 3/28/24
+- [x] Summary table
+- [x] Salary average displayed in console
+- [x] Computer-generated random employee selection, displayed in console
+#### Additional features
+- Ability to conveniently cancel employee data entry at any time
+- Feedback on data save process throughout application
 
 ![screenshot of deployed page](./assets/Screenshot%202024-03-24%20222325.png)
 
