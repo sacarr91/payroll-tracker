@@ -15,42 +15,54 @@ const collectEmployees = function() {
   while (nextEmployee) { 
   
     //EMPLOYEE INFO INPUT CODE BLOCK
-    const firstName = prompt('Employee First Name');
-      if (firstName === null) {
-        nextEmployee = false;
-        console.log(`Operation cancelled at First Name entry`);
-        break;
-      };
-      if (firstName === undefined) {
+    let firstName = prompt('Employee First Name');
+       while (firstName === '') {
+        if (firstName === null) {
+          break;
+        } else {
         alert(`Please enter a name in the box provided.`);
         firstName = prompt('Employee First Name');
-      };
-    console.log(`First name entered: ${firstName}`);
-    
-    const lastName = prompt('Employee Last Name');
-      if (lastName === null) {
-        console.log(`Operation cancelled at Last Name entry`);
+        }};
+      if (firstName === null) {
+        console.log(`Operation cancelled at First Name entry`);
         nextEmployee = false;
         break;
       };
-      if (lastName === undefined) {
-        alert(`Please enter a name in the box provided.`);
-        lastName = prompt('Employee Last Name');
-      };
-    console.log(`Last name entered: ${lastName}`);
+      console.log(`First name entered: ${firstName}`);
 
-    let salary = prompt('Enter salary');
-      if (salary === null) {
-        console.log(`Operation cancelled at Salary entry`);
-        nextEmployee = false;
+    let lastName = prompt('Employee Last Name');
+    while (lastName === '') {
+      if (lastName === null) {
         break;
-      };
-      //provide for if salary is blank
-      if (isNaN(salary)) { 
-        alert('Salary should be a numerical quanitity in US currency.');
-        salary = prompt('Enter salary');
-      };
-    console.log(`Salary entered: $${salary}`);
+      } else {
+      alert(`Please enter a name in the box provided.`);
+      lastName = prompt('Employee First Name');
+      }};
+    if (lastName === null) {
+      console.log(`Operation cancelled at Salary entry`);
+      nextEmployee = false;
+      break;
+    };
+      console.log(`Last name entered: ${lastName}`);
+      
+    let salary = prompt(`Enter salary`);
+    //provide for if salary is not a number
+      while (isNaN(salary)) { 
+        if (salary === null) {
+        break;
+      } else {
+        alert(`Salary should be a numerical quanitity in US currency. Please enter only whole numbers. Do not use special characters such as $ or , or .`);
+        salary = prompt(`Enter salary`);
+        salary = parseFloat(salary);
+      }
+    };
+    if (salary === null) {
+      console.log(`Operation cancelled at Salary entry`);
+      nextEmployee = false;
+      break;
+    };
+    salary = parseFloat(salary)
+    console.log(`Salary entered: $${salary}`);    
 
     //collect employee info variables in an object
     let employeeInfo = { 
@@ -75,7 +87,7 @@ const collectEmployees = function() {
   return employeesArray; 
 
 //end Collect Employees function
-}; 
+};
 
 // Display the average salary
 let totalSalary = 0
