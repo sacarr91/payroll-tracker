@@ -15,10 +15,13 @@ This application is still under development.
 - [x] Summary table
 - [x] Salary average displayed in console
 - [x] Computer-generated random employee selection, displayed in console
+#### 4/3/2024 Update
+- [x] Updated input verification loops
+- [x] Updated screenshot
 #### Additional features
 - Ability to conveniently cancel employee data entry at any time
 - Feedback on data save process throughout application
 
-![screenshot of deployed page](./assets/Screenshot%202024-03-24%20222325.png)
+![screenshot of deployed page](./assets/Screenshot%202024-04-03%20221503.png)
 
 [Link to Deployed Payroll Tracker](https://sacarr91.github.io/payroll-tracker/)
